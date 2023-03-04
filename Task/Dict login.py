@@ -26,5 +26,6 @@ while len(pswd)<=7:
     pswd=input("Enter Password: ")
 
 else:
-    d={username:pswd}
+    d["Username"]=username
+    d['pswd']=pswd
     print(d)
