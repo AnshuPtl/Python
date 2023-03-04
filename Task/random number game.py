@@ -2,7 +2,7 @@
 
 import random
 num = random.randrange(1,100)
-
+print(num)
 print('====================Game Start====================')
 i = int(input("Enter First guess:"))
 
