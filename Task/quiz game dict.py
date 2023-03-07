@@ -22,4 +22,4 @@ for i in answer:
         print("False")
         score=score-5
         print("Your score is:",score)
-    print("Your Total score is:",score)
+print("Your Total score is:",score)
