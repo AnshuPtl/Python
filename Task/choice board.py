@@ -4,7 +4,7 @@ d={1:'Addition',2:'Substaction',3:'Multiplication',4:'Division',5:'Modulo',6:'Ex
 
 def add(a,b):
     
-    return n1+n2
+    return a+b
 
 def sub(a,b):
     
@@ -22,6 +22,9 @@ def mod(a,b):
     
     return a%b
 
+def choic(inp):
+    print(d.get(inp))
+
     
 
 print("=====================Choice Board=====================")
@@ -33,11 +36,11 @@ while con:
     for i,j in d.items():
         print(i,".",j)
     choice=int(input("Enter your choice:"))
-    if choice == d[1]:
+    if choice == 1:
         print("your choice is: ",d.get(choice))
         n1=int(input("Enter num1:"))
         n2=int(input("Enter num2:"))
-        print('Your Answer:',add(n1,n2))
+        print(n1,'+',n2,'=',add(n1,n2))
         choice2=input("Do you want to continue: ['Y/N']")
         if choice2!='y':
             con=False
@@ -46,7 +49,7 @@ while con:
         print("your choice is: ",d.get(choice))
         n1=int(input("Enter num1:"))
         n2=int(input("Enter num2:"))
-        print('Your Answer:',sub(n1,n2))
+        print(n1,'-',n2,'=',sub(n1,n2))
         choice2=input("Do you want to continue: ['Y/N']")
         if choice2!='y':
             con=False
@@ -55,7 +58,7 @@ while con:
         print("your choice is: ",d.get(choice))
         n1=int(input("Enter num1:"))
         n2=int(input("Enter num2:"))
-        print('Your Answer:',mul(n1,n2))
+        print(n1,'*',n2,'=',mul(n1,n2))
         choice2=input("Do you want to continue: ['Y/N']")
         if choice2!='y':
             con=False
@@ -64,7 +67,7 @@ while con:
         print("your choice is: ",d.get(choice))
         n1=int(input("Enter num1:"))
         n2=int(input("Enter num2:"))
-        print('Your Answer:',div(n1,n2))
+        print(n1,'/',n2,'=',div(n1,n2))
         choice2=input("Do you want to continue: ['Y/N']")
         if choice2!='y':
             con=False
@@ -73,7 +76,7 @@ while con:
         print("your choice is: ",d.get(choice))
         n1=int(input("Enter num1:"))
         n2=int(input("Enter num2:"))
-        print('Your Answer:',mod(n1,n2))
+        print(n1,'%',n2,'=',mod(n1,n2))
         choice2=input("Do you want to continue: ['Y/N']")
         if choice2!='y':
             con=False
