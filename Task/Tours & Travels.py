@@ -52,7 +52,6 @@ if choice=='y':
     user["gender"]=l.gender()
     user['email']=l.email()
     user["pswd"]=l.pswd()
-    print(user)
         
     print('')
     print("Registration done sucessfully")
