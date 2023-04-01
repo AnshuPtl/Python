@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pform.css" type="text/css">
+</head>
+<body>
+    <form method="post" action="">
+        <div class="raw">
+            <h1>Registration Page</h1>
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> First Name:</label>
+                <input type="text" placeholder="Enter First Name" class="etalign" name="fname" required/>
+            </div>
+                
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> Last Name:</label>
+                <input type="text" placeholder="Enter Last Name" class="etalign" name="lname" required/>
+            </div>
+        </div>
+
+        <div class="raw">
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> E-mail Id:</label>
+                <input type="email" placeholder="Enter E-mail" class="etalign" name="email_id" required/>
+            </div>
+            
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> Contact:</label>
+                <input type="tel" placeholder="Enter Contact Number" minlength="10" maxlength="10" class="etalign" name="contact" required/>
+            </div>
+        </div>
+
+        <div class="raw">
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> Gender:</label>
+                <input type="radio" value="Male" name="gender"/>Male
+                <input type="radio" value="Female" name="gender"/>Female
+            </div>
+            
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> DOB:</label>
+                <input type="date" class="etalign" name="dob"/>
+            </div>
+        </div>
+
+        <div class="raw">
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> Account Varient:</label>
+                <select class="etalign" required>
+                    <option>-------Select-------</option>
+                    <option>Saving</option>
+                    <option>Current</option>
+                    <option>Fixed Deposite</option>
+                </select>
+            </div>
+            
+            <div class="col-6 col-s-6">
+                <label class="talign">Services:</label>
+                <input type="checkbox" for="DB" value="Debit Card" name="DB"><label for="DB" class="etalign">Debit Card</label>
+                <input type="checkbox" for="cb" value="ChequeBook" name="cb"><label for="cb" class="etalign">ChequeBook</label>
+                <input type="checkbox" for="pb" value="PassBook" name="pb"><label for="pb" class="etalign">PassBook</label>
+            </div>
+        </div>
+
+
+        <div class="raw">
+            <div class="col-12 col-s-12">
+                <label class="talign"><span class="str">*</span> Upload Your ID Proof:</label>
+                <input type="file" class="etalign" accept=".pdf,.jpg,.png">
+            </div>
+        </div>
+
+        <div class="raw">
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> Password:</label>
+                <input type="password" class="etalign" placeholder="Enter Password" name="pswd" required/>
+            </div>
+            
+            <div class="col-6 col-s-6">
+                <label class="talign"><span class="str">*</span> Confirm Password:</label>
+                <input type="password" minlength="8" placeholder="Confirm Password" class="etalign" name="cpswd" required/>
+            </div>
+        </div>
+
+
+        <div class="raw">
+            <div class="col-12 col-s-12">
+                <input type="checkbox" value="Debit Card" required />Terms & Conditions
+            </div>
+        </div>
+
+        <div class="raw">
+            <div class="col-12 col-s-12">
+                <button type="Submit">Submit</button>
+            </div>
+        </div>
+              
+    </form>
+</body>
+</html>
