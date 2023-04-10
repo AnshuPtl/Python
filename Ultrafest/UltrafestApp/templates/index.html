@@ -69,7 +69,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</li>   
 								
 								<li><a href="#book" class="scroll">Booking</a></li>
-								
+								<li><a href="{% url 'signup'%}">Signup</a></li>
+
 							  </ul>
 							</div><!-- /.navbar-collapse -->
 						</div>
@@ -480,6 +481,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3 class="heading-agileinfo" data-aos="zoom-in">Book An Event<span class="thr">Events Is A Professionally Managed Event</span></h3>
 			<div class="book-appointment" data-aos="zoom-in">
 				<form action="#" method="post">
+					{% csrf_token%}
 					<div class="gaps">
 						<p></p>
 						<input type="text" name="Name" placeholder="Name" required="" />
@@ -493,7 +495,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<input type="text" name="Phone Number" placeholder="Phone Number" required="" />
 					</div>
 					<div class="gaps">
-						<textarea name="Message" placeholder="Message..." required=""></textarea>
+						<p></p>
+						<input type="text" name="password" placeholder="Password" required=""/>
+					</div>
+					<div class="gaps">
+						<p></p>
+						<input type="text" name="password" placeholder="Confirm Password" required=""/>
 					</div>
 					<input type="submit" value="Book Now">
 				</form>
