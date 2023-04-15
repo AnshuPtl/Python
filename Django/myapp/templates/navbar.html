@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +24,20 @@
 			<li><a href="{% url 'contact'%}">Contact</a></li>
 		  <li><a href="{% url 'feedback'%}">Feedback</a></li>
 		</ul>
-		
+
+
+		{% if msg %}
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="{% url 'user'%}"><span class="glyphicon glyphicon-user"></span> {{ User.name }}</a></li>
+			<li><a href="{% url 'login'%}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+		</ul>
+
+		{% else %}
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="{% url 'signup'%}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<li><a href="{% url 'login'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 		</ul>
+		{% endif %}
 	</nav> 
 </div> 
 

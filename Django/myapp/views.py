@@ -36,3 +36,23 @@ def signup(request):
 
 	else:
 		return render(request,'Signup.html')
+
+def login(request):
+	if request.method=="POST":
+		try:
+			user=User.objects.get(email=request.POST['email'],pswd=request.POST['pswd'])
+			request.session['email']=request.POST['email']
+			request.session['pswd']=request.POST['pswd']
+			msg="Login Successfull"
+			return render(request,'index.html',{'msg':msg})
+
+		except:
+			msg1="Email or Password is Invalid"
+			return render(request,'login.html',{'msg1': msg1})
+
+			
+	else:
+		return render(request,'login.html')
+
+def user(request):
+	return render(request,'user.html')
