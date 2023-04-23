@@ -9,5 +9,7 @@ urlpatterns = [
     path('feedback',views.feedback, name="feedback"),
     path('Signup',views.signup,name="signup"),
     path('login',views.login,name="login"),
-    path('user',views.user,name="user"),
+    path('logout',views.logout,name="logout"),
+    path('chngpswd',views.chngpswd,name="chngpswd"),
+    path('profile',views.profile,name="profile"),
 ]

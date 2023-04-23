@@ -26,10 +26,17 @@
 		</ul>
 
 
-		{% if msg %}
+		{% if request.session.email %}
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="{% url 'user'%}"><span class="glyphicon glyphicon-user"></span> {{ User.name }}</a></li>
-			<li><a href="{% url 'login'%}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+			<li><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-user"></span><span class="nav-label"></span> {{ request.session.name }}<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="{% url 'chngpswd'%}">Change Password</a>
+						<a href="{% url 'profile'%}">Profile</a>
+					</li>
+				</ul>
+			</li>
+			<li><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 		</ul>
 
 		{% else %}

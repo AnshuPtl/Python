@@ -41,7 +41,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="{%static 'img/core-img/logo.png'%}" alt=""></a>
+                        <a href="{% url 'index'%}" class="nav-brand"><img src="{%static 'img/core-img/logo.png'%}" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -66,10 +66,11 @@
                                     <li><a href="{%url 'contact'%}">Contact</a></li>
                                 </ul>
                                 {% if request.session.email %}
+
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                             {{User.Name}}
+                                        <a href="{%url 'changepswd'%}" id="loginBtn">Change Password</a>
                                     </div>
                                 
                                 <div class="login-register-cart-button d-flex align-items-center">
