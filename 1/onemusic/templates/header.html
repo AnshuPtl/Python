@@ -14,7 +14,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="{%static 'img/core-img/favicon.ico'%}">
-
+    
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{% static 'style.css'%}">
 
@@ -60,24 +60,24 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="{%url 'index'%}">Home</a></li>
-                                    <li><a href="{%url 'albums'%}">Albums</a></li>
+                                    <li><a href="{%url 'about'%}">About</a></li>
                                     <li><a href="{%url 'events'%}">Events</a></li>
-                                    <li><a href="{%url 'news'%}">News</a></li>
-                                    <li><a href="{%url 'contact'%}">Contact</a></li>
+                                    <li><a href="{%url 'blog'%}">Blog</a></li>
+                                    <li><a href="{%url 'contacts'%}">Contact</a></li>
                                 </ul>
+                               
                                 {% if request.session.email %}
-
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="{%url 'changepswd'%}" id="loginBtn">Change Password</a>
-                                    </div>
-                                
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="{%url 'logout'%}" id="loginBtn">Logout</a>
-                                    </div>
+                                <div class="classynav">
+                                  <ul>
+                                    <li><a href="#">{{ request.session.name }}</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{%url 'index'%}">Profile</a></li>
+                                            <li><a href="{%url 'logout'%}">Logout</a></li>
+                                            <li><a href="{%url 'change_password'%}">Change Password</a></li>
+                                        </ul>
+                                    </li>
+                                  </ul>
+                                </div>
                                    
                                 {%else%}
                                    <!-- Login/Register & Cart Button -->
@@ -90,10 +90,11 @@
                                         <a href="{%url 'login'%}" id="loginBtn">Login</a>
                                     </div>
 
-                                    <!-- Cart Button -->
+                                    <!-- Cart Button
                                     <div class="cart-btn">
                                         <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
+                                    </div> 
+                                    -->
                                 </div>
                                 {%endif%}
                                 
@@ -124,11 +125,11 @@
                 <div class="col-12 col-md-6">
                     <div class="footer-nav">
                         <ul>
-                            <li><a href="{% url 'index' %}">Home</a></li>
-                            <li><a href="{% url 'albums' %}">Albums</a></li>
-                            <li><a href="{% url 'events' %}">Events</a></li>
-                            <li><a href="{% url 'news' %}">News</a></li>
-                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                            <li><a href="{%url 'index'%}">Home</a></li>
+                            <li><a href="{%url 'about'%}">About</a></li>
+                            <li><a href="{%url 'events'%}">Events</a></li>
+                            <li><a href="{%url 'blog'%}">Blog</a></li>
+                            <li><a href="{%url 'contacts'%}">Contact</a></li>
                         </ul>
                     </div>
                 </div>

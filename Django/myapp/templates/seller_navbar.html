@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+	<nav class="navbar navbar-inverse">
+		<!--Navbar header -->
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="{% url 'seller_index'%}">WebSite</a>
+		</div>
+		<!--navbar menu-->
+		<ul class="nav navbar-nav ">
+		  <li><a href="{% url 'seller_index'%}">Home</a></li>
+			<li><a href="#">Add Products</a></li>
+			<li><a href="#">Manage Products</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+
+
+		{% if request.session.email %}
+		<ul class="nav navbar-nav navbar-right">
+			<li><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-user"></span><span class="nav-label"></span> {{ request.session.name }}<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="{% url 'chngpswd'%}">Change Password</a>
+						<a href="{% url 'profile'%}">Profile</a>
+					</li>
+				</ul>
+			</li>
+			<li><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+		</ul>
+
+		{% else %}
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="{% url 'signup'%}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			<li><a href="{% url 'login'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		</ul>
+		{% endif %}
+	</nav> 
+</div> 
+
+	{% block content %}
+	{% endblock %}
+  
+</body>
+</html>

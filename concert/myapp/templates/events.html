@@ -1,0 +1,40 @@
+
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    
+  </head>
+  <body>
+
+      <section class="section section-xl bg-default text-center">
+        <div class="container">
+          <h2>latest Concerts</h2>
+          <div class="row row-125">
+
+            {% for i in products %}
+            <div class="col-md-6 col-lg-4">
+              <article class="post-classic">
+                <figure class="post-classic-figure"><a href="{% url 'product_detail' pk=i.pk %}"><img src="{{i.product_image.url}}" alt="" width="346px" height="130px"/></a></figure>
+                <div class="post-classic-content">
+                  <time class="post-classic-time" datetime="2019-09-19">{{i.product_date}}{{i.product_time}}</time>
+                  <h5 class="post-classic-title"><a href="{% url 'product_detail' pk=i.pk %}">{{i.product_name}}</a></h5>
+                  <p style="color:black;">{{i.product_venue}}</p>
+                  <a class="post-classic-link" href="{% url 'product_detail' pk=i.pk %}">read more</a>
+                </div>
+              </article>
+            </div>
+            {% endfor %}
+        
+          </div>
+        </div>
+      </section>
+
+      <!-- Banner 2--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" target="blank" style="background-image: url(images/banner/background-01-1920x310.jpg); background-image: -webkit-image-set( url(images/banner/background-01-1920x310.jpg) 1x, url(images/banner/background-01-3840x620.jpg) 2x )"><img src="{% static 'images/banner/foreground-01-1600x310.png" srcset="images/banner/foreground-01-1600x310.png 1x, images/banner/foreground-01-3200x620.png 2x" alt="" width="1600" height="310"></a>
+      
+  </body>
+</html>
+{% endblock %}

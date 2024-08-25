@@ -1,0 +1,58 @@
+
+{% extends 'seller_header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    
+  </head>
+  <body>
+    
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-50 flex-md-row-reverse">
+            <div class="col-md-6 text-center">
+              <div class="box-image-1"><img src="{{product.product_image.url}}" alt="" width="468" height="276"/>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="box-about">
+                <div class="box-about-title-wrap">
+                  <h2 class="box-about-mega-title">{{product.product_desc}}</h2>
+                  <h2 class="box-about-title">Concert Details</h2>
+                </div>
+                <br>
+                <h4 class="box-about-post-title">How it All Began</h4>
+
+                {% if msg %}
+                <b style="color:#ABCDEF">{{msg}}</b>
+                {% else %}
+                <b style="color:red">{{msg1}}</b>
+                {% endif %}
+
+                <p>Description : {{product.product_desc}}</p> 
+                
+                <p>I have been involved in music since I remember myself as my parents were rock musicians. After discovering House and Dubstep in 2008, I realized what my future should be connected with.</p>
+                
+                <p>Every BTS fan’s dream is to see them live in person. The boisterous energy of the audience, the beautiful aesthetics of the army bombs (the official BTS light stick) glittering throughout the entire venue in an animated fashion, the memorable performances that the members put on, the vibrating acoustics that fill your body as you are listening to the music, the wonderful live vocals of the members and the synchronization of the group dances.</p>
+
+
+                <p>Price : {{product.product_price}}</p>
+                <p>Quantity : {{product.product_qty}}</p>
+
+                <a class="button button-primary" href="{% url 'seller_product_edit' pk=product.pk %}">Edit</a>
+                <a class="button button-danger" style="color:red;" href="{% url 'seller_product_delete' pk=product.pk %}">Delete</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>  
+      
+  </body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    
+  </head>
+  <body>
+
+      <section class="section section-xl bg-default text-center">
+        <div class="container">
+          {% if carts %}
+            <h2>Cart</h2>
+          {% else %}
+            <h2>No Events in Cart</h2>
+          {% endif %}
+          <div class="row row-125">
+
+            {% for i in carts %}
+            <div class="col-md-6 col-lg-4">
+              <article class="post-classic">
+                <figure class="post-classic-figure"><a href="{% url 'product_detail' pk=i.product.pk %}"><img src="{{i.product.product_image.url}}" alt="" width="346px" height="130px"/></a></figure>
+                <div class="post-classic-content">
+                  <time class="post-classic-time" datetime="2019-09-19">{{i.product.product_date}}{{i.product.product_time}}</time>
+                  <h5 class="post-classic-title"><a href="{% url 'product_detail' pk=i.product.pk %}">{{i.product.product_name}}</a></h5>
+                  <p style="color:black;">{{i.product.product_venue}}</p>
+                  <a class="post-classic-link" href="{% url 'product_detail' pk=i.product.pk %}">read more</a>
+                  <p style="color:black;">Price : {{i.product.product_price}}</p>
+
+                  <form method="post" action="{% url 'change_qty' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name='cid' value="{{i.pk}}">
+                    <p style="color:black;">Quantity : </p>
+                    <input type="number" name="product_qty" value="{{i.product_qty}}" min="1" max="10" onchange="this.form.submit()">
+                  </form>
+
+                  <p style="color:black;">Total Price : {{i.total_price}}</p>
+                </div>
+              </article>
+            </div>
+            {% endfor %}
+
+            <h2>Net Price : {{net_price}}</h2>
+
+            <form name="payment" method="post" action="{% url 'pay' %}">
+              {% csrf_token %}
+              <input type="hidden" name="amount" value="{{net_price}}">
+              <input type="submit" name="action" value="Proceed To Checkout" class="button button-modern button-custom-size-1">
+            </form>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Banner 2--><a class="section section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" target="blank" style="background-image: url(images/banner/background-01-1920x310.jpg); background-image: -webkit-image-set( url(images/banner/background-01-1920x310.jpg) 1x, url(images/banner/background-01-3840x620.jpg) 2x )"><img src="{% static 'images/banner/foreground-01-1600x310.png" srcset="images/banner/foreground-01-1600x310.png 1x, images/banner/foreground-01-3200x620.png 2x" alt="" width="1600" height="310"></a>
+      
+  </body>
+</html>
+{% endblock %}
